@@ -67,8 +67,11 @@
       <p>A toy BitTorrent client.</p>
     </a>
 
-    <a class="card" href="http://gifball.com/">
+    <a class="card mouseovervideo" href="http://gifball.com/">
       <img src="images/gifball.png">
+      <video autoplay muted loop hidden>
+        <source src="images/gifball.mp4" type="video/mp4">
+      </video>
       <h4>gifball.com</h4>
       <p>Gifs, synced to music. [UNMAINTAINED]</p>
     </a>
@@ -515,11 +518,28 @@
     pickN(3, quotes.length).forEach((idx) => quotes[idx].style.display = 'inline-block')
   }
 
+  function handleMouseoverVideoStart(){
+    this.getElementsByTagName('img')[0].hidden = true
+    this.getElementsByTagName('video')[0].hidden = false
+  }
+
+  function handleMouseoverVideoStop(){
+    this.getElementsByTagName('img')[0].hidden = false
+    this.getElementsByTagName('video')[0].hidden = true
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     // Add target="_blank" to all links.
     var links = document.querySelectorAll('a')
     for (var i = 0; i < links.length; i++) {
       links[i].target = "_blank"
+    }
+
+    // Add target="_blank" to all links.
+    var cards = document.querySelectorAll('.mouseovervideo')
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].onmouseover = handleMouseoverVideoStart
+      cards[i].onmouseout = handleMouseoverVideoStop
     }
 
     // Show three random quotes and hide the rest.
