@@ -270,6 +270,7 @@ i.random-quote-button .tooltip {
   font-family: Times, 'Times New Roman', serif;
   font-size: 14px;
   line-height: 1.4;
+  min-width: 300px;
 }
 .quote blockquote {
   width: 100%;
