@@ -316,12 +316,10 @@ i.random-quote-button .tooltip {
   list-style-type: square;
   font-size: 13px;
 }
-.favorites li i {
-  padding-left: 4px;
-}
 
 .tooltip-container {
   position: relative;
+  padding-left: 4px;
 }
 .tooltip-container:hover div.tooltip {
   visibility: visible;
@@ -341,4 +339,5 @@ i.random-quote-button .tooltip {
   font-size: 13px;
   font-weight: normal;
   width: 240px;
+  text-align: left;
 }
