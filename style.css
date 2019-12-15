@@ -276,6 +276,11 @@ i.random-quote-button .tooltip {
   line-height: 1.4;
   min-width: 300px;
 }
+@media only screen and (max-width: 900px) {
+  .quote {
+    min-width: 220px;
+  }
+}
 .quote blockquote {
   width: 100%;
   padding-left: 8px;
