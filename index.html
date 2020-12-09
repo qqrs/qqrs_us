@@ -558,6 +558,11 @@
     pickN(3, quotes.length).forEach((idx) => quotes[idx].style.display = 'inline-block')
   }
 
+  function showAllQuotes() {
+    var quotes = document.querySelectorAll('.quote')
+    quotes.forEach((el) => el.style.display = 'inline-block')
+  }
+
   function handleMouseoverVideoStart(){
     this.getElementsByTagName('img')[0].hidden = true
     this.getElementsByTagName('video')[0].hidden = false
