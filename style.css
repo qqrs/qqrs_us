@@ -275,6 +275,13 @@ i.random-quote-button .tooltip {
   left: 36px;
   color: #000;
 }
+.show-all-quotes-button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+  color: #fff;
+}
 .quote {
   font-family: Times, 'Times New Roman', serif;
   font-size: 14px;
