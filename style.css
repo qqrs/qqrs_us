@@ -229,6 +229,9 @@ h3 {
 .card:hover p, .card:active p {
   color: black;
 }
+.card li {
+  font-size: 14px;
+}
 
 .writing {
   max-width: 500px;
