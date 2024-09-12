@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>qqkb</title>
+      <link>https://qqrs.us/qqkb</link>
+      <description>Last 10 notes on qqkb</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>hello</title>
+    <link>https://qqrs.us/qqkb/</link>
+    <guid>https://qqrs.us/qqkb/</guid>
+    <description>...</description>
+    <pubDate>Thu, 12 Sep 2024 01:24:31 GMT</pubDate>
+  </item><item>
+    <title>password manager for family</title>
+    <link>https://qqrs.us/qqkb/howto/sysadmin/password-manager-for-family</link>
+    <guid>https://qqrs.us/qqkb/howto/sysadmin/password-manager-for-family</guid>
+    <description>recommendations to family re: passwords and online security see also: password security Overview turn on two-factor authentication print and save recovery codes use strong passwords ...</description>
+    <pubDate>Mon, 02 Sep 2024 03:47:21 GMT</pubDate>
+  </item><item>
+    <title>ham radio baofeng</title>
+    <link>https://qqrs.us/qqkb/howto/hobbies/ham-radio-baofeng</link>
+    <guid>https://qqrs.us/qqkb/howto/hobbies/ham-radio-baofeng</guid>
+    <description>baofeng YouTube: Baofeng UV-5R | The Gateway Drug To Ham Radio UV-5R programming programming cable guide to CHIRP columns The recommended way to import a CSV in CHIRP is to download ...</description>
+    <pubDate>Sun, 18 Aug 2024 07:00:13 GMT</pubDate>
+  </item><item>
+    <title>ham radio</title>
+    <link>https://qqrs.us/qqkb/howto/hobbies/ham-radio</link>
+    <guid>https://qqrs.us/qqkb/howto/hobbies/ham-radio</guid>
+    <description>radios see: ham radio baofeng frequently recommend non-Baofeng radios: Japanese manufacturers Yaesu, Icom, Kenwood Baofengs and other cheap radios use a direct conversion frontend ...</description>
+    <pubDate>Sat, 08 Jul 2023 17:26:55 GMT</pubDate>
+  </item><item>
+    <title>artwork</title>
+    <link>https://qqrs.us/qqkb/howto/archiving/artwork</link>
+    <guid>https://qqrs.us/qqkb/howto/archiving/artwork</guid>
+    <description>Archiving hanging art photographing 2D artwork, paintings, framed photos, plaques, and other oversized items Resolution 2016 FADGI guidelines recommend: 10k pixels across the ...</description>
+    <pubDate>Sat, 25 Sep 2021 21:54:45 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
