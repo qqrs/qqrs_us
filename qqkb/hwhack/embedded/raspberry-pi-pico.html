@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>raspberry pi pico</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="raspberry pi pico"/><meta property="og:description" content="Raspberry Pi Pico is a full-featured Arm-core microcontroller for $4 ($7 with Wi-Fi and pre-soldered headers). There are C and MicroPython SDKs, and community Rust support."/><meta property="og:image" content="https://qqrs.us/qqkb/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Raspberry Pi Pico is a full-featured Arm-core microcontroller for $4 ($7 with Wi-Fi and pre-soldered headers). There are C and MicroPython SDKs, and community Rust support."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="hwhack/embedded/raspberry-pi-pico"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">qqkb</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="explorer desktop-only"><button type="button" id="explorer" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;howto&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;howto/archiving&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;howto/hobbies&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;howto/sysadmin&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;hwhack&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;hwhack/embedded&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;swhack&quot;,&quot;collapsed&quot;:true}]" aria-controls="explorer-content" aria-expanded="false"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-content"><ul class="overflow" id="explorer-ul"><li><div class="folder-outer open"><ul style="padding-left:0;" class="content" data-folderul><li><div class="folder-outer "><ul style="padding-left:0;" class="content" data-folderul></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto"><button class="folder-button"><span class="folder-title">howto</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto/archiving"><button class="folder-button"><span class="folder-title">archiving</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto/archiving"><li><a href="../../howto/archiving/artwork" data-for="howto/archiving/artwork">artwork</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto/hobbies"><button class="folder-button"><span class="folder-title">hobbies</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto/hobbies"><li><a href="../../howto/hobbies/ham-radio" data-for="howto/hobbies/ham-radio">ham radio</a></li><li><a href="../../howto/hobbies/ham-radio-baofeng" data-for="howto/hobbies/ham-radio-baofeng">ham radio baofeng</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto/sysadmin"><button class="folder-button"><span class="folder-title">sysadmin</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto/sysadmin"><li><a href="../../howto/sysadmin/password-manager-recommendations" data-for="howto/sysadmin/password-manager-recommendations">password manager recommendations</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="hwhack"><button class="folder-button"><span class="folder-title">hwhack</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="hwhack"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="hwhack/embedded"><button class="folder-button"><span class="folder-title">embedded</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="hwhack/embedded"><li><a href="../../hwhack/embedded/raspberry-pi-pico" data-for="hwhack/embedded/raspberry-pi-pico">raspberry pi pico</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="swhack"><button class="folder-button"><span class="folder-title">swhack</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="swhack"><li><a href="../../swhack/milkdrop" data-for="swhack/milkdrop">milkdrop</a></li><li><a href="../../swhack/strafejumping" data-for="swhack/strafejumping">strafejumping</a></li></ul></div></li></ul></div></li><li id="explorer-end"></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../hwhack/">hwhack</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../hwhack/embedded/">embedded</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>raspberry pi pico</a></div></nav><h1 class="article-title">raspberry pi pico</h1><p show-comma="true" class="content-meta"><span>Oct 30, 2024</span><span>6 min read</span></p></div></div><article class="popover-hint"><p>Raspberry Pi Pico is a full-featured Arm-core microcontroller for $4 ($7 with Wi-Fi and pre-soldered headers). There are C and MicroPython SDKs, and community Rust support.</p>
+<p>One unique feature of the RP2040 chip is the PIO state machine module—useful for driving interfaces with tight timing requirements (e.g., for LED strips) without tying up the CPU.</p>
+<p>The new (released 2024) Raspberry Pi Pico 2 is $5 and has extensive security feature upgrades.</p>
+<p>There is also a Raspberry Pi Debug Probe for $12 (very useful).</p>
+<h2 id="c-sdk">C SDK<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c-sdk" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>These are my notes from getting started with the C SDK.</p>
+<p>The process was pretty smooth but the documentation was not all in one place. This is everything I needed to get up and running on Mac OS.</p>
+<p><strong>See these first!</strong></p>
+<ul>
+<li><a href="https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html" class="external">https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf" class="external">https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf" class="external">https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h3 id="precompiled-binaries">Precompiled binaries<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#precompiled-binaries" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Start by loading precompiled example programs…</p>
+<p><a href="https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html#your-first-binaries" class="external">https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html#your-first-binaries<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h3 id="mac-os-toolchain-installation">Mac OS toolchain installation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mac-os-toolchain-installation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>To compile your own programs…</p>
+<ul>
+<li><a href="https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html#quick-start-your-own-project" class="external">“Quick-start your own project” guide<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf" class="external">Getting Started with the Raspberry Pi Pico-series<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> pdf
+<ul>
+<li>p. 32 Appendix C: Manual toolchain setup: Manually Configure your Environment</li>
+</ul>
+</li>
+</ul>
+<p>These didn’t have complete info for Mac OS so I also relied on this video:</p>
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=B5IinAgYjS8" class="external">Raspberry Pi Pico - C/C++ SDK Setup [macOS]<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>I was using the Pico W (version with Wi-Fi).</p>
+<p>Here are commands I ran:</p>
+<pre><code>brew install make cmake git gcc-arm-embedded libusb
+</code></pre>
+<pre><code>git clone git@github.com:raspberrypi/pico-sdk.git
+cd pico-sdk
+git submodule update --init
+
+cd ..
+git clone https://github.com/raspberrypi/pico-examples.git
+</code></pre>
+<pre><code>mkdir hello-pico
+cd hello-pico
+
+cp ../pico-examples/pico_w/wifi/blink/picow_blink.c blink.c
+cp ../pico-examples/pico_sdk_import.cmake .
+
+# CMakeLists.txt from the video
+wget https://gist.githubusercontent.com/eldelto/0740e8f5259ab528702cef74fa96622e/raw/c8dc72471aaf22f79b677eaac2db8b542b01b1b0/CMakeLists.txt
+
+# edit CMakeLists.txt to uncomment line for Pico W
+</code></pre>
+<pre><code>brew install picotool
+# or alternative: export PICOTOOL_FETCH_FROM_GIT_PATH=../../picotool
+</code></pre>
+<pre><code>cd build
+
+export PICO_BOARD=pico_w
+export PICO_SDK_PATH=../../pico-sdk
+cmake ..
+
+# or alternative: cmake -DPICO_BOARD=pico_w -DPICO_SDK_PATH=../../pico-sdk ..
+
+make -j8        # 8 cores
+
+# hold down BOOTSEL and connect USB
+cp blink.uf2 /Volumes/RPI-RP2
+</code></pre>
+<h4 id="troubleshooting">Troubleshooting<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#troubleshooting" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Make sure you’re in the <code>build directory</code> and running <code>cmake ..</code>. Note the <code>..</code>.</p>
+<p>If you get errors, you may need to do a clean rebuild by deleting the entire <code>build</code> directory and starting over at <code>cmake ..</code>. E.g., I had to do this after running cmake in the wrong directory.</p>
+<p><a href="https://forums.raspberrypi.com/viewtopic.php?p=2104413&amp;sid=4ec1d5d0f684a9e3a1a4041f92b67296#p2104413" class="external">run cmake again or just make?<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<blockquote>
+<p>Usually just running ‘make’ will detect changes in ‘CMakeLists.txt’ and automatically run a ‘cmake ..’ However; there can be times when changes in ‘CMakeLists.txt’ are simply ignored and even a manual ‘cmake ..’ won’t resolve that. You then need to delete the entire ‘./build’ folder and re-build from the start.</p>
+</blockquote>
+<h4 id="saving-build-config-envs">Saving build config envs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#saving-build-config-envs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>So it’s quicker to sit down and start working next time…</p>
+<p>Save to picoenvs.sh:</p>
+<pre><code>export PICO_BOARD=pico_w
+export PICO_SDK_PATH=~/dev/pico/pico-sdk
+export WIFI_SSID='Your SSID here'
+export WIFI_PASSWORD='Your passphrase here'
+</code></pre>
+<p>then <code>source</code> it when opening a terminal session.</p>
+<p>Add to ~/.profile</p>
+<pre><code>alias make=&quot;/usr/bin/make -j 8&quot;
+</code></pre>
+<p>Now it’s just</p>
+<pre><code>cd build
+cmake ..
+make
+
+# hold down BOOTSEL and connect USB
+cp blink.uf2 /Volumes/RPI-RP2
+</code></pre>
+<h2 id="building-example-code">Building example code<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#building-example-code" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Raspberry Pi supplies a few dozen example programs for the Pico. The readme has descriptions of each example.</p>
+<p><a href="https://github.com/raspberrypi/pico-examples" class="external">https://github.com/raspberrypi/pico-examples<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Note that some are for specialized hardware only on the RP2350 chip.</p>
+<h3 id="blink">blink<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#blink" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>(This assumes the pico-sdk and pico-examples repos were already cloned above during toolchain setup.)</p>
+<pre><code>source ~/dev/pico/picoenvs.sh
+cd pico-examples
+
+mkdir build
+cd build
+cmake ..
+
+cd blink
+make
+
+# hold down BOOTSEL and connect USB
+cp blink.uf2 /Volumes/RPI-RP2
+</code></pre>
+<p>tried these examples:<br/>
+<span>→</span> blink<br/>
+<span>→</span> pico_w/wifi/blink</p>
+<p>Both examples blink the LED on the board.</p>
+<h3 id="hello_world">hello_world<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hello_world" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>see: <a href="#usb-or-uart" class="internal alias">USB or UART?</a> below</p>
+<p>This assumes the Pico is connected to the computer via its USB port.</p>
+<p><span>→</span> hello_world/usb</p>
+<pre><code>ls /dev/tty.usbmodem*
+</code></pre>
+<pre><code>minicom -b 115200 -o -D /dev/tty.usbmodem2302
+# or alternative: screen /dev/tty.usbmodem2302 115200
+</code></pre>
+<h3 id="wifi_scan">wifi_scan<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#wifi_scan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><span>→</span> pico_w/wifi/wifi_scan</p>
+<p>Note stdio is directed to UART by default. See <a href="#usb-or-uart" class="internal alias">USB or UART?</a></p>
+<h3 id="ntp_client-tls_client">ntp_client, tls_client<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ntp_client-tls_client" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>network time protocol and transport layer security</p>
+<p><span>→</span> pico_w/wifi/ntp_client<br/>
+<span>→</span> pico_w/wifi/tls_client</p>
+<p>Note that <code>WIFI_SSID</code> and <code>WIFI_PASSWORD</code> env vars must be set or cmake will skip building these examples.</p>
+<pre><code>Skipping ntp_client example as WIFI_SSID is not defined
+</code></pre>
+<p>Also note stdio is directed to UART by default. See <a href="#usb-or-uart" class="internal alias">USB or UART?</a></p>
+<h2 id="programming-and-debugging">Programming and debugging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#programming-and-debugging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="overview">Overview<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#overview" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>options for programming:</p>
+<ol>
+<li>program via USB as mass storage volume</li>
+<li>program via USB with picotool</li>
+<li>program via SWD with openocd (requires Debug Probe)</li>
+</ol>
+<p>options for debugging:</p>
+<ol>
+<li>printf debugging via USB virtual serial port</li>
+<li>printf debugging via UART (requires usb-to-serial adapter)</li>
+<li>gdb/lldb debugging via SWD with openocd (requires Debug Probe)</li>
+</ol>
+<p>A Raspberry Pi Debug Probe ($12) is quick to set up and lets you program via SWD, use gdb/lldb debugger, and monitor the UART output—with no need to continually unplug and reconnect cables. Highly recommended for development.</p>
+<p>Note that the Pico without pre-soldered headers has no JST  connector for the SWD debug port. You’ll need to solder on header pins if you need SWD.</p>
+<h3 id="serial-debugging">serial debugging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#serial-debugging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Good old printf debugging works.</p>
+<pre><code>printf(&quot;Hello, world!\n&quot;);
+</code></pre>
+<h4 id="uart">UART<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#uart" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>By default stdio is directed to UART. You can monitor this with the Debug Probe or any other usb-to-serial adapter.</p>
+<p>RX/TX/GND connect to pins 1/2/3 on the Pico. See <a href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html#getting-started" class="external">diagram<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+<pre><code>minicom -b 115200 -o -D /dev/tty.usbmodem1302
+</code></pre>
+<h4 id="usb">USB<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#usb" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>You can also redirect stdio to USB. The Pico has built-in support to emulate a virtual serial port over its USB port. This way all you need is a USB cable.</p>
+<p>The <code>hello_world</code> example shows how to configure the CMakeLists.txt. It looks something like this:</p>
+<pre><code># enable usb output, disable uart output
+pico_enable_stdio_usb(hello_usb 1)
+pico_enable_stdio_uart(hello_usb 0)
+</code></pre>
+<h3 id="picotool">picotool<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#picotool" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>query and program Pico via USB</p>
+<p><strong>See first:</strong></p>
+<ul>
+<li><a href="https://rptl.io/pico-get-started" class="external">Getting Started with the Raspberry Pi Pico<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> Appendix B</li>
+<li><a href="https://github.com/raspberrypi/picotool" class="external">https://github.com/raspberrypi/picotool<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>you must first reboot holding BOOTSEL button or</p>
+<blockquote>
+<p>as of version 1.1 of picotool it is also possible to interact with Raspberry Pi microcontrollers that are not in BOOTSEL mode, but are using USB stdio support from the SDK by using the -f argument of picotool.</p>
+</blockquote>
+<pre><code>brew install picotool
+</code></pre>
+<p>useful commands to try</p>
+<pre><code>picotool info
+picotool info -a
+picotool load blink.uf2
+picotool reboot
+</code></pre>
+<p>to enter BOOTSEL mode: after programming pico-examples/hello-world/usb (or any other using USB stdio) via USB mass storage method:</p>
+<pre><code>picotool info -f
+</code></pre>
+<p>will reboot into BOOTSEL mode</p>
+<h3 id="openocd">openocd<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#openocd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>programming via SWD</p>
+<p>connect Debug Probe JST-SH for SWD and RX/TX/GND pins for <a href="#uart" class="internal alias">UART</a></p>
+<p><strong>See first:</strong></p>
+<ul>
+<li><a href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html" class="external">https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="https://openocd.org/doc/html/General-Commands.html" class="external">https://openocd.org/doc/html/General-Commands.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>check Debug Probe firmware version</p>
+<pre><code>$ openocd -f interface/cmsis-dap.cfg
+...
+Info : CMSIS-DAP: FW Version = 2.0.0
+...
+</code></pre>
+<p>programming</p>
+<pre><code>sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c &quot;adapter speed 5000&quot; -c &quot;program hello_serial.elf verify reset exit&quot;
+</code></pre>
+<p>reboot pico</p>
+<pre><code>openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c &quot;adapter speed 5000&quot; -c &quot;init&quot; -c &quot;reset run&quot; -c &quot;shutdown&quot;
+</code></pre>
+<p>halt pico</p>
+<pre><code>... -c &quot;adapter speed 5000&quot; -c &quot;init&quot; -c &quot;reset halt&quot; -c &quot;shutdown&quot;
+</code></pre>
+<h3 id="gdblldb-debugging">gdb/lldb debugging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#gdblldb-debugging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>TODO</p>
+<h2 id="c-sdk-additional-libraries">C SDK additional libraries<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c-sdk-additional-libraries" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="mqtt">MQTT<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mqtt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>TODO</p></article><hr/><div class="page-footer"><div class="explorer mobile-only"><button type="button" id="explorer" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;howto&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;howto/archiving&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;howto/hobbies&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;howto/sysadmin&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;hwhack&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;hwhack/embedded&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;swhack&quot;,&quot;collapsed&quot;:true}]" aria-controls="explorer-content" aria-expanded="false"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-content"><ul class="overflow" id="explorer-ul"><li><div class="folder-outer open"><ul style="padding-left:0;" class="content" data-folderul><li><div class="folder-outer "><ul style="padding-left:0;" class="content" data-folderul></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto"><button class="folder-button"><span class="folder-title">howto</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto/archiving"><button class="folder-button"><span class="folder-title">archiving</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto/archiving"><li><a href="../../howto/archiving/artwork" data-for="howto/archiving/artwork">artwork</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto/hobbies"><button class="folder-button"><span class="folder-title">hobbies</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto/hobbies"><li><a href="../../howto/hobbies/ham-radio" data-for="howto/hobbies/ham-radio">ham radio</a></li><li><a href="../../howto/hobbies/ham-radio-baofeng" data-for="howto/hobbies/ham-radio-baofeng">ham radio baofeng</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="howto/sysadmin"><button class="folder-button"><span class="folder-title">sysadmin</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="howto/sysadmin"><li><a href="../../howto/sysadmin/password-manager-recommendations" data-for="howto/sysadmin/password-manager-recommendations">password manager recommendations</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="hwhack"><button class="folder-button"><span class="folder-title">hwhack</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="hwhack"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="hwhack/embedded"><button class="folder-button"><span class="folder-title">embedded</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="hwhack/embedded"><li><a href="../../hwhack/embedded/raspberry-pi-pico" data-for="hwhack/embedded/raspberry-pi-pico">raspberry pi pico</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="swhack"><button class="folder-button"><span class="folder-title">swhack</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="swhack"><li><a href="../../swhack/milkdrop" data-for="swhack/milkdrop">milkdrop</a></li><li><a href="../../swhack/strafejumping" data-for="swhack/strafejumping">strafejumping</a></li></ul></div></li></ul></div></li><li id="explorer-end"></li></ul></div></div></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#c-sdk" data-for="c-sdk">C SDK</a></li><li class="depth-1"><a href="#precompiled-binaries" data-for="precompiled-binaries">Precompiled binaries</a></li><li class="depth-1"><a href="#mac-os-toolchain-installation" data-for="mac-os-toolchain-installation">Mac OS toolchain installation</a></li><li class="depth-0"><a href="#building-example-code" data-for="building-example-code">Building example code</a></li><li class="depth-1"><a href="#blink" data-for="blink">blink</a></li><li class="depth-1"><a href="#hello_world" data-for="hello_world">hello_world</a></li><li class="depth-1"><a href="#wifi_scan" data-for="wifi_scan">wifi_scan</a></li><li class="depth-1"><a href="#ntp_client-tls_client" data-for="ntp_client-tls_client">ntp_client, tls_client</a></li><li class="depth-0"><a href="#programming-and-debugging" data-for="programming-and-debugging">Programming and debugging</a></li><li class="depth-1"><a href="#overview" data-for="overview">Overview</a></li><li class="depth-1"><a href="#serial-debugging" data-for="serial-debugging">serial debugging</a></li><li class="depth-1"><a href="#picotool" data-for="picotool">picotool</a></li><li class="depth-1"><a href="#openocd" data-for="openocd">openocd</a></li><li class="depth-1"><a href="#gdblldb-debugging" data-for="gdblldb-debugging">gdb/lldb debugging</a></li><li class="depth-0"><a href="#c-sdk-additional-libraries" data-for="c-sdk-additional-libraries">C SDK additional libraries</a></li><li class="depth-1"><a href="#mqtt" data-for="mqtt">MQTT</a></li></ul></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li>No backlinks found</li></ul></div></div><footer class><p>Copyleft <span style="display: inline-block; transform: scaleX(-1);">©</span> &amp; Copyright © 2024 OmniLore Interactive, a division of Yoyodyne Industries. Some rights reserved.</p><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../postscript.js" type="module"></script></html>

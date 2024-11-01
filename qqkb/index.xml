@@ -6,6 +6,12 @@
       <description>Last 10 notes on qqkb</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>raspberry pi pico</title>
+    <link>https://qqrs.us/qqkb/hwhack/embedded/raspberry-pi-pico</link>
+    <guid>https://qqrs.us/qqkb/hwhack/embedded/raspberry-pi-pico</guid>
+    <description>Raspberry Pi Pico is a full-featured Arm-core microcontroller for $4 ($7 with Wi-Fi and pre-soldered headers). There are C and MicroPython SDKs, and community Rust support.</description>
+    <pubDate>Thu, 31 Oct 2024 03:55:52 GMT</pubDate>
+  </item><item>
     <title>strafejumping</title>
     <link>https://qqrs.us/qqkb/swhack/strafejumping</link>
     <guid>https://qqrs.us/qqkb/swhack/strafejumping</guid>
