@@ -6,7 +6,7 @@
 <h2 id="c-sdk">C SDK<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c-sdk" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
 <p>These are my notes from getting started with the C SDK.</p>
 <p>The process was pretty smooth but the documentation was not all in one place. This is everything I needed to get up and running on Mac OS.</p>
-<p><strong>See these first!</strong></p>
+<p><span>→</span> <strong>See these first:</strong> <span>←</span></p>
 <ul>
 <li><a href="https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html" class="external">https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
 <li><a href="https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf" class="external">https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
@@ -33,7 +33,7 @@
 <p>Here are commands I ran:</p>
 <pre><code>brew install make cmake git gcc-arm-embedded libusb
 </code></pre>
-<pre><code>git clone git@github.com:raspberrypi/pico-sdk.git
+<pre><code>git clone https://github.com/raspberrypi/pico-sdk.git
 cd pico-sdk
 git submodule update --init
 
@@ -74,11 +74,11 @@ cp blink.uf2 /Volumes/RPI-RP2
 <blockquote>
 <p>Usually just running ‘make’ will detect changes in ‘CMakeLists.txt’ and automatically run a ‘cmake ..’ However; there can be times when changes in ‘CMakeLists.txt’ are simply ignored and even a manual ‘cmake ..’ won’t resolve that. You then need to delete the entire ‘./build’ folder and re-build from the start.</p>
 </blockquote>
-<h4 id="saving-build-config-envs">Saving build config envs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#saving-build-config-envs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
-<p>So it’s quicker to sit down and start working next time…</p>
+<h4 id="saving-build-envs">Saving build envs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#saving-build-envs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Save the build config env vars so you don’t have to keep retyping/autocompleting them.</p>
 <p>Save to picoenvs.sh:</p>
 <pre><code>export PICO_BOARD=pico_w
-export PICO_SDK_PATH=~/dev/pico/pico-sdk
+export PICO_SDK_PATH=~/path/to/pico-sdk
 export WIFI_SSID='Your SSID here'
 export WIFI_PASSWORD='Your passphrase here'
 </code></pre>
@@ -95,12 +95,12 @@ make
 cp blink.uf2 /Volumes/RPI-RP2
 </code></pre>
 <h2 id="building-example-code">Building example code<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#building-example-code" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-<p>Raspberry Pi supplies a few dozen example programs for the Pico. The readme has descriptions of each example.</p>
+<p>Raspberry Pi supplies a few dozen example programs for the Pico. The readme has descriptions for each one.</p>
 <p><a href="https://github.com/raspberrypi/pico-examples" class="external">https://github.com/raspberrypi/pico-examples<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
-<p>Note that some are for specialized hardware only on the RP2350 chip.</p>
+<p>Note that some are for specialized hardware only available on the RP2350 chip.</p>
 <h3 id="blink">blink<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#blink" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<p>(This assumes the pico-sdk and pico-examples repos were already cloned above during toolchain setup.)</p>
-<pre><code>source ~/dev/pico/picoenvs.sh
+<p>(This assumes the pico-sdk and pico-examples repos were cloned during toolchain setup.)</p>
+<pre><code>source ~/path/to/picoenvs.sh
 cd pico-examples
 
 mkdir build
@@ -118,17 +118,14 @@ cp blink.uf2 /Volumes/RPI-RP2
 <span>→</span> pico_w/wifi/blink</p>
 <p>Both examples blink the LED on the board.</p>
 <h3 id="hello_world">hello_world<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hello_world" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<p>see: <a href="#usb-or-uart" class="internal alias">USB or UART?</a> below</p>
-<p>This assumes the Pico is connected to the computer via its USB port.</p>
 <p><span>→</span> hello_world/usb</p>
-<pre><code>ls /dev/tty.usbmodem*
+<p>Note: stdio is directed to USB. The Pico should be connected to the computer via its USB port. See <a href="#serial-debugging" class="internal alias">serial debugging</a>.</p>
+<pre><code>screen /dev/tty.usbmodem2302 115200    # or similar name
 </code></pre>
-<pre><code>minicom -b 115200 -o -D /dev/tty.usbmodem2302
-# or alternative: screen /dev/tty.usbmodem2302 115200
-</code></pre>
+<p><code>Ctrl+a</code> then <code>k</code> to quit <code>screen</code></p>
 <h3 id="wifi_scan">wifi_scan<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#wifi_scan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <p><span>→</span> pico_w/wifi/wifi_scan</p>
-<p>Note stdio is directed to UART by default. See <a href="#usb-or-uart" class="internal alias">USB or UART?</a></p>
+<p>Note: stdio is directed to UART by default. You can either connect to the UART or edit the project to redirect stdio to USB instead. See <a href="#serial-debugging" class="internal alias">serial debugging</a>.</p>
 <h3 id="ntp_client-tls_client">ntp_client, tls_client<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ntp_client-tls_client" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <p>network time protocol and transport layer security</p>
 <p><span>→</span> pico_w/wifi/ntp_client<br/>
@@ -136,7 +133,7 @@ cp blink.uf2 /Volumes/RPI-RP2
 <p>Note that <code>WIFI_SSID</code> and <code>WIFI_PASSWORD</code> env vars must be set or cmake will skip building these examples.</p>
 <pre><code>Skipping ntp_client example as WIFI_SSID is not defined
 </code></pre>
-<p>Also note stdio is directed to UART by default. See <a href="#usb-or-uart" class="internal alias">USB or UART?</a></p>
+<p>Note: stdio is directed to UART by default. You can either connect to the UART or edit the project to redirect stdio to USB instead. See <a href="#serial-debugging" class="internal alias">serial debugging</a>.</p>
 <h2 id="programming-and-debugging">Programming and debugging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#programming-and-debugging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
 <h3 id="overview">Overview<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#overview" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <p>options for programming:</p>
@@ -152,19 +149,24 @@ cp blink.uf2 /Volumes/RPI-RP2
 <li>gdb/lldb debugging via SWD with openocd (requires Debug Probe)</li>
 </ol>
 <p>A Raspberry Pi Debug Probe ($12) is quick to set up and lets you program via SWD, use gdb/lldb debugger, and monitor the UART output—with no need to continually unplug and reconnect cables. Highly recommended for development.</p>
-<p>Note that the Pico without pre-soldered headers has no JST  connector for the SWD debug port. You’ll need to solder on header pins if you need SWD.</p>
+<p>Note that the Pico without pre-soldered headers has no JST connector for the SWD debug port. You’ll need to solder on header pins to use SWD.</p>
 <h3 id="serial-debugging">serial debugging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#serial-debugging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <p>Good old printf debugging works.</p>
 <pre><code>printf(&quot;Hello, world!\n&quot;);
 </code></pre>
 <h4 id="uart">UART<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#uart" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
-<p>By default stdio is directed to UART. You can monitor this with the Debug Probe or any other usb-to-serial adapter.</p>
+<p>By default, stdio is directed to UART. You can connect with the Debug Probe or any other usb-to-serial TTL adapter (FTDI, etc.).</p>
 <p>RX/TX/GND connect to pins 1/2/3 on the Pico. See <a href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html#getting-started" class="external">diagram<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
-<pre><code>minicom -b 115200 -o -D /dev/tty.usbmodem1302
+<pre><code>brew install minicom
+</code></pre>
+<pre><code>ls /dev/tty.usbmodem*
+</code></pre>
+<pre><code>minicom -b 115200 -o -D /dev/tty.usbmodem2302    # or similar name
+# or alternative: screen /dev/tty.usbmodem2302 115200
 </code></pre>
 <h4 id="usb">USB<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#usb" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
 <p>You can also redirect stdio to USB. The Pico has built-in support to emulate a virtual serial port over its USB port. This way all you need is a USB cable.</p>
-<p>The <code>hello_world</code> example shows how to configure the CMakeLists.txt. It looks something like this:</p>
+<p>The <code>hello_world</code> example shows how you would configure the CMakeLists.txt. It would look something like this:</p>
 <pre><code># enable usb output, disable uart output
 pico_enable_stdio_usb(hello_usb 1)
 pico_enable_stdio_uart(hello_usb 0)
@@ -188,12 +190,12 @@ picotool info -a
 picotool load blink.uf2
 picotool reboot
 </code></pre>
-<p>to enter BOOTSEL mode: after programming pico-examples/hello-world/usb (or any other using USB stdio) via USB mass storage method:</p>
+<p>handy way to reboot into BOOTSEL mode:</p>
 <pre><code>picotool info -f
 </code></pre>
-<p>will reboot into BOOTSEL mode</p>
+<p>Note: only works if the loaded program is set up for USB stdio. E.g., you could load pico-examples/hello-world/usb via USB mass storage method.</p>
 <h3 id="openocd">openocd<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#openocd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<p>programming via SWD</p>
+<p>program Pico via SWD</p>
 <p>connect Debug Probe JST-SH for SWD and RX/TX/GND pins for <a href="#uart" class="internal alias">UART</a></p>
 <p><strong>See first:</strong></p>
 <ul>
@@ -232,7 +234,7 @@ Info : CMSIS-DAP: FW Version = 2.0.0
                 C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
                 S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
                 s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
-                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#c-sdk" data-for="c-sdk">C SDK</a></li><li class="depth-1"><a href="#precompiled-binaries" data-for="precompiled-binaries">Precompiled binaries</a></li><li class="depth-1"><a href="#mac-os-toolchain-installation" data-for="mac-os-toolchain-installation">Mac OS toolchain installation</a></li><li class="depth-0"><a href="#building-example-code" data-for="building-example-code">Building example code</a></li><li class="depth-1"><a href="#blink" data-for="blink">blink</a></li><li class="depth-1"><a href="#hello_world" data-for="hello_world">hello_world</a></li><li class="depth-1"><a href="#wifi_scan" data-for="wifi_scan">wifi_scan</a></li><li class="depth-1"><a href="#ntp_client-tls_client" data-for="ntp_client-tls_client">ntp_client, tls_client</a></li><li class="depth-0"><a href="#programming-and-debugging" data-for="programming-and-debugging">Programming and debugging</a></li><li class="depth-1"><a href="#overview" data-for="overview">Overview</a></li><li class="depth-1"><a href="#serial-debugging" data-for="serial-debugging">serial debugging</a></li><li class="depth-1"><a href="#picotool" data-for="picotool">picotool</a></li><li class="depth-1"><a href="#openocd" data-for="openocd">openocd</a></li><li class="depth-1"><a href="#gdblldb-debugging" data-for="gdblldb-debugging">gdb/lldb debugging</a></li><li class="depth-0"><a href="#c-sdk-additional-libraries" data-for="c-sdk-additional-libraries">C SDK additional libraries</a></li><li class="depth-1"><a href="#mqtt" data-for="mqtt">MQTT</a></li></ul></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li>No backlinks found</li></ul></div></div><footer class><p>Copyleft <span style="display: inline-block; transform: scaleX(-1);">©</span> &amp; Copyright © 2024 OmniLore Interactive, a division of Yoyodyne Industries. Some rights reserved.</p><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#c-sdk" data-for="c-sdk">C SDK</a></li><li class="depth-1"><a href="#precompiled-binaries" data-for="precompiled-binaries">Precompiled binaries</a></li><li class="depth-1"><a href="#mac-os-toolchain-installation" data-for="mac-os-toolchain-installation">Mac OS toolchain installation</a></li><li class="depth-0"><a href="#building-example-code" data-for="building-example-code">Building example code</a></li><li class="depth-1"><a href="#blink" data-for="blink">blink</a></li><li class="depth-1"><a href="#hello_world" data-for="hello_world">hello_world</a></li><li class="depth-1"><a href="#wifi_scan" data-for="wifi_scan">wifi_scan</a></li><li class="depth-1"><a href="#ntp_client-tls_client" data-for="ntp_client-tls_client">ntp_client, tls_client</a></li><li class="depth-0"><a href="#programming-and-debugging" data-for="programming-and-debugging">Programming and debugging</a></li><li class="depth-1"><a href="#overview" data-for="overview">Overview</a></li><li class="depth-1"><a href="#serial-debugging" data-for="serial-debugging">serial debugging</a></li><li class="depth-1"><a href="#picotool" data-for="picotool">picotool</a></li><li class="depth-1"><a href="#openocd" data-for="openocd">openocd</a></li><li class="depth-1"><a href="#gdblldb-debugging" data-for="gdblldb-debugging">gdb/lldb debugging</a></li><li class="depth-0"><a href="#c-sdk-additional-libraries" data-for="c-sdk-additional-libraries">C SDK additional libraries</a></li><li class="depth-1"><a href="#mqtt" data-for="mqtt">MQTT</a></li></ul></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li><a href="../../" class="internal">hello</a></li></ul></div></div><footer class><p>Copyleft <span style="display: inline-block; transform: scaleX(-1);">©</span> &amp; Copyright © 2024 OmniLore Interactive, a division of Yoyodyne Industries. Some rights reserved.</p><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
 </script><script type="module">
           let mermaidImport = undefined
           document.addEventListener('nav', async () => {
