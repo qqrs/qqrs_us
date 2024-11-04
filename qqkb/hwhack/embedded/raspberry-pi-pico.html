@@ -68,7 +68,7 @@ make -j8        # 8 cores
 cp blink.uf2 /Volumes/RPI-RP2
 </code></pre>
 <h4 id="troubleshooting">Troubleshooting<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#troubleshooting" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
-<p>Make sure you’re in the <code>build directory</code> and running <code>cmake ..</code>. Note the <code>..</code>.</p>
+<p>Make sure you’re in the <code>build</code> directory and running <code>cmake ..</code>. Note the <code>..</code>.</p>
 <p>If you get errors, you may need to do a clean rebuild by deleting the entire <code>build</code> directory and starting over at <code>cmake ..</code>. E.g., I had to do this after running cmake in the wrong directory.</p>
 <p><a href="https://forums.raspberrypi.com/viewtopic.php?p=2104413&amp;sid=4ec1d5d0f684a9e3a1a4041f92b67296#p2104413" class="external">run cmake again or just make?<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
 <blockquote>
@@ -95,9 +95,9 @@ make
 cp blink.uf2 /Volumes/RPI-RP2
 </code></pre>
 <h2 id="building-example-code">Building example code<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#building-example-code" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-<p>Raspberry Pi supplies a few dozen example programs for the Pico. The readme has descriptions for each one.</p>
+<p>Raspberry Pi supplies a few dozen example programs for the Pico. See the readme.</p>
 <p><a href="https://github.com/raspberrypi/pico-examples" class="external">https://github.com/raspberrypi/pico-examples<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
-<p>Note that some are for specialized hardware only available on the RP2350 chip.</p>
+<p>Note that some only work on the RP2350 chip.</p>
 <h3 id="blink">blink<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#blink" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <p>(This assumes the pico-sdk and pico-examples repos were cloned during toolchain setup.)</p>
 <pre><code>source ~/path/to/picoenvs.sh
@@ -145,17 +145,17 @@ cp blink.uf2 /Volumes/RPI-RP2
 <p>options for debugging:</p>
 <ol>
 <li>printf debugging via USB virtual serial port</li>
-<li>printf debugging via UART (requires usb-to-serial adapter)</li>
+<li>printf debugging via UART (requires usb-to-serial adapter or Debug Probe)</li>
 <li>gdb/lldb debugging via SWD with openocd (requires Debug Probe)</li>
 </ol>
 <p>A Raspberry Pi Debug Probe ($12) is quick to set up and lets you program via SWD, use gdb/lldb debugger, and monitor the UART output—with no need to continually unplug and reconnect cables. Highly recommended for development.</p>
-<p>Note that the Pico without pre-soldered headers has no JST connector for the SWD debug port. You’ll need to solder on header pins to use SWD.</p>
+<p>Note that the Pico with pre-soldered headers has a JST connector for the SWD debug port, but the Pico without headers doesn’t. You’ll need to solder on header pins to use SWD.</p>
 <h3 id="serial-debugging">serial debugging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#serial-debugging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <p>Good old printf debugging works.</p>
 <pre><code>printf(&quot;Hello, world!\n&quot;);
 </code></pre>
 <h4 id="uart">UART<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#uart" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
-<p>By default, stdio is directed to UART. You can connect with the Debug Probe or any other usb-to-serial TTL adapter (FTDI, etc.).</p>
+<p>By default, stdio is directed to UART. You can connect with the Debug Probe or any other usb-to-serial TTL level adapter (FTDI, etc.).</p>
 <p>RX/TX/GND connect to pins 1/2/3 on the Pico. See <a href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html#getting-started" class="external">diagram<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
 <pre><code>brew install minicom
 </code></pre>
@@ -178,7 +178,7 @@ pico_enable_stdio_uart(hello_usb 0)
 <li><a href="https://rptl.io/pico-get-started" class="external">Getting Started with the Raspberry Pi Pico<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> Appendix B</li>
 <li><a href="https://github.com/raspberrypi/picotool" class="external">https://github.com/raspberrypi/picotool<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
 </ul>
-<p>you must first reboot holding BOOTSEL button or</p>
+<p>you must first reboot while holding the BOOTSEL button or</p>
 <blockquote>
 <p>as of version 1.1 of picotool it is also possible to interact with Raspberry Pi microcontrollers that are not in BOOTSEL mode, but are using USB stdio support from the SDK by using the -f argument of picotool.</p>
 </blockquote>
@@ -190,10 +190,10 @@ picotool info -a
 picotool load blink.uf2
 picotool reboot
 </code></pre>
-<p>handy way to reboot into BOOTSEL mode:</p>
+<p>handy way to reboot into BOOTSEL mode<br/>
+(Note: only works if the loaded program is configured for USB stdio. E.g., you could load pico-examples/hello-world/usb via USB mass storage method.)</p>
 <pre><code>picotool info -f
 </code></pre>
-<p>Note: only works if the loaded program is set up for USB stdio. E.g., you could load pico-examples/hello-world/usb via USB mass storage method.</p>
 <h3 id="openocd">openocd<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#openocd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <p>program Pico via SWD</p>
 <p>connect Debug Probe JST-SH for SWD and RX/TX/GND pins for <a href="#uart" class="internal alias">UART</a></p>
