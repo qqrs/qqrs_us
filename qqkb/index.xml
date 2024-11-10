@@ -6,33 +6,15 @@
       <description>Last 10 notes on qqkb</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>raspberry pi pico</title>
-    <link>https://qqrs.us/qqkb/hwhack/embedded/raspberry-pi-pico</link>
-    <guid>https://qqrs.us/qqkb/hwhack/embedded/raspberry-pi-pico</guid>
-    <description>Raspberry Pi Pico is a full-featured Arm-core microcontroller for $4 ($7 with Wi-Fi and pre-soldered headers). There are C and MicroPython SDKs, and community Rust support.</description>
-    <pubDate>Thu, 31 Oct 2024 03:55:52 GMT</pubDate>
-  </item><item>
-    <title>strafejumping</title>
-    <link>https://qqrs.us/qqkb/swhack/strafejumping</link>
-    <guid>https://qqrs.us/qqkb/swhack/strafejumping</guid>
-    <description>Strafe-jumping is a movement technique in Quake 3 that allows the player to move much faster than the nominal run speed. It was discovered as a bug in Quake II and fans liked it so much id software carried it forward to subsequent games.</description>
-    <pubDate>Sat, 26 Oct 2024 03:35:11 GMT</pubDate>
-  </item><item>
-    <title>milkdrop</title>
-    <link>https://qqrs.us/qqkb/swhack/milkdrop</link>
-    <guid>https://qqrs.us/qqkb/swhack/milkdrop</guid>
-    <description>Milkdrop is a Winamp music visualization plugin from back in the day (ca 2001). It had a really active community of folks releasing thousands and thousands of “presets” and afaik there isn’t anything else today with that kind of scene.</description>
-    <pubDate>Mon, 21 Oct 2024 13:19:38 GMT</pubDate>
-  </item><item>
     <title>hello</title>
     <link>https://qqrs.us/qqkb/</link>
     <guid>https://qqrs.us/qqkb/</guid>
     <description>...</description>
     <pubDate>Thu, 12 Sep 2024 17:03:08 GMT</pubDate>
   </item><item>
-    <title>password manager recommendations</title>
-    <link>https://qqrs.us/qqkb/howto/sysadmin/password-manager-recommendations</link>
-    <guid>https://qqrs.us/qqkb/howto/sysadmin/password-manager-recommendations</guid>
+    <title>password manager</title>
+    <link>https://qqrs.us/qqkb/howto/sysadmin/password-manager</link>
+    <guid>https://qqrs.us/qqkb/howto/sysadmin/password-manager</guid>
     <description>recommendations to family re: passwords and online security see also: password security Overview turn on two-factor authentication print and save recovery codes use strong passwords ...</description>
     <pubDate>Mon, 02 Sep 2024 03:47:21 GMT</pubDate>
   </item><item>
