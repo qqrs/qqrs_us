@@ -413,16 +413,16 @@ cd build
 cmake ..
 make test
 </code></pre>
-<p>I was compiling for RP2350 and got errors around these lines in two CMakeLists.txt files, so I removed them:</p>
+<p>I was compiling for RP2350 and got errors around these lines in two CMakeLists.txt files:</p>
 <pre><code>    PICO_DEFAULT_UART_RX_PIN=16
     PICO_DEFAULT_UART_TX_PIN=17
 </code></pre>
-<p>That compiled successfully. I flashed the binary to the device, connect via UART terminal, and was able to see test runner output:</p>
+<p>Removing them resolved the errors. I flashed the binary to the device, connected via UART terminal, and was able to see test runner output:</p>
 <pre><code>RUNNING TESTS
 ...
 Errors (1 failures, 3 tests, 2 ran, 4 checks, 0 ignored, 1 filtered out, 0 ms)
 </code></pre>
-<p>While poking through the CMakeLists.txt files, I did a few things that seemed like a good idea; pinned the CPPUTest git hash, set the compiled targets to be saved to <code>bin/</code> instead of <code>src/</code> and <code>test/</code>, and picked more descriptive names for the CMake variables referring to the targets.</p>
+<p>While poking through the CMakeLists.txt files, I made a few changes that seemed like a good idea: pinned the CPPUTest git hash; changed the destination dir for compiled targets to <code>bin/</code>, instead of <code>src/</code> and <code>test/</code>; and picked more descriptive names than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05764em;">ME</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span></span></span></span>TEST_NAME for the CMake variables referring to the targets.</p>
 <p>I also added custom targets:</p>
 <ul>
 <li><code>make flash</code>, <code>make flash-tests</code> to flash the device using OpenOCD</li>
