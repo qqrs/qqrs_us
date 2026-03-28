@@ -236,6 +236,10 @@ h3 {
   font-size: 14px;
 }
 
+.card.project {
+  max-width: 240px;
+}
+
 .card.aboutme {
   max-width: 430px;
   font-size: 14px;
