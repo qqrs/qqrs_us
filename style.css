@@ -236,21 +236,24 @@ h3 {
   font-size: 14px;
 }
 
-.aboutme {
-  max-width: 440px;
+.card.aboutme {
+  max-width: 430px;
   font-size: 14px;
 }
-.aboutme h3 {
+.card.aboutme.now {
+  max-width: 360px;
+}
+.card.aboutme h3 {
   display: inline-block;
   font-weight: bold;
   background: none;
   border: none;
   padding-bottom: 0;
 }
-.aboutme ul {
+.card.aboutme ul {
   padding-top: 16px;
 }
-.aboutme li {
+.card.aboutme li {
   padding-top: 8px;
   list-style-type: square;
 }
