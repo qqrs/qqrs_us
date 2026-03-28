@@ -236,6 +236,25 @@ h3 {
   font-size: 14px;
 }
 
+.aboutme {
+  max-width: 440px;
+  font-size: 14px;
+}
+.aboutme h3 {
+  display: inline-block;
+  font-weight: bold;
+  background: none;
+  border: none;
+  padding-bottom: 0;
+}
+.aboutme ul {
+  padding-top: 16px;
+}
+.aboutme li {
+  padding-top: 8px;
+  list-style-type: square;
+}
+
 .writing {
   max-width: 500px;
 }
